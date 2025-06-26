@@ -14,7 +14,6 @@
     "serve": "yarn workspace website run serve",
     "serve:website-multi-docs": "yarn workspace website-multi-docs run serve",
     "test": "cross-env NODE_ENV='test' jest",
-    //"prepare": "husky install",
     "lint-staged": "lint-staged"
   },
   "devDependencies": {
