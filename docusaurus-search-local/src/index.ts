@@ -209,4 +209,12 @@ export interface PluginOptions {
    * @default 1
    */
   fuzzyMatchingDistance?: number;
+
+  /**
+   * Custom filter function to include only selected docs for indexing.
+   * Receives a doc object: { id: string, content: string, ... }.
+   *
+   * Return `true` to include in index, `false` to skip.
+   */
+  filterDocs?: (doc: SearchDocument) => boolean;
 }

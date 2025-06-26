@@ -27,6 +27,12 @@ export function postBuildFactory(
     for (const versionData of data) {
       // Give every index entry a unique id so that the index does not need to store long URLs.
       const allDocuments = await scanDocuments(versionData.paths, config);
+      
+      if (typeof config.filterDocs === 'function') {
+        for (let i = 0; i < allDocuments.length; i++) {
+          allDocuments[i] = allDocuments[i].filter(doc => config.filterDocs!(doc));
+        }
+      }
 
       debugInfo("building index");
 
